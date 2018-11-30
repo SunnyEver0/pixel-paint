@@ -122,5 +122,10 @@
     "presets": [
       "react-app"
     ]
+  },
+  "importSort": {
+    ".js, .jsx, .es6, .es": {
+      "style": "module-compact"
+    }
   }
 }

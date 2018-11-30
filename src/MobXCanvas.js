@@ -33,7 +33,10 @@ const PixelContainer = observer(function PixelContainer({ i, j }) {
       i={i}
       j={j}
       active={store.isActive(i, j)}
-      onToggle={() => store.toggle(i, j)}
+      onToggle={() => {
+        console.log(i, j);
+        store.toggle(i, j)
+      }}
     />
   );
 });

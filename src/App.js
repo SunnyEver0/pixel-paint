@@ -1,21 +1,19 @@
 import "./App.css";
 
-import { ObservableMap, action, observable } from "mobx";
-
-import DevTools from "mobx-react-devtools";
 /* eslint import/no-webpack-loader-syntax: off */
-import MobXCanvas from './MobXCanvas';
-// import MobXCanvas from "./MobXCanvas";
+import MobXCanvas from 'bundle-loader?lazy&name=MobXCanvas!./MobXCanvas';
+import ReduxCanvas1 from 'bundle-loader?lazy&name=ReduxCanvas1!./ReduxCanvas1';
+import { ObservableMap, action, observable } from "mobx";
+import DevTools from "mobx-react-devtools";
 import React from "react";
 
-// const MobXCanvas = require('bundle-loader?lazy&name=MobXCanvas!./MobXCanvas')
 const availableExperiments = {
-  MobXCanvas
+  MobXCanvas,
+  ReduxCanvas1
 };
 
 class App extends React.Component {
   renderContent() {
-    console.log(this.props.experiment, 'MobXCanvas');
     const experiment = availableExperiments[this.props.experiment];
     if (!experiment) {
       return <ChooseAnExperiment />;
@@ -41,12 +39,9 @@ class ExperimentContainer extends React.Component {
     this.state = { Canvas: null, devTool: null };
   }
   componentDidMount() {
-    debugger
-    console.log(this.props.experiment);
     this.props.experiment(experimentModule => {
-      console.log(experimentModule, 'experimentModule')
       this.setState({
-        Canvas: experimentModule,
+        Canvas: experimentModule.default,
         devTool:
           (experimentModule.renderDevTool &&
             experimentModule.renderDevTool()) ||

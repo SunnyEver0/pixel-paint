@@ -1,9 +1,10 @@
 .Pixel {
-  background-color: white;
-  height: 3px;
-  width: 3px;
+  position: absolute;
+  background-color: #eee;
+  height: 4px;
+  width: 4px;
 }
 
 .Pixel[data-active="1"] {
-  background-color: aqua;
+  background-color: #333;
 }
