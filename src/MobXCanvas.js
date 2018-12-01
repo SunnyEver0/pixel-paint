@@ -1,9 +1,8 @@
-import DevTool, { configureDevtool } from "mobx-react-devtools";
 import { action, observable } from "mobx";
-
-import Pixel from "./Pixel";
-import React from "react";
 import { observer } from "mobx-react";
+import DevTool, { configureDevtool } from "mobx-react-devtools";
+import React from "react";
+import Pixel from "./Pixel";
 
 configureDevtool({ updatesEnabled: false });
 
@@ -35,7 +34,7 @@ const PixelContainer = observer(function PixelContainer({ i, j }) {
       active={store.isActive(i, j)}
       onToggle={() => {
         console.log(i, j);
-        store.toggle(i, j)
+        store.toggle(i, j);
       }}
     />
   );

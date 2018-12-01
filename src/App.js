@@ -1,15 +1,15 @@
 import "./App.css";
 
 /* eslint import/no-webpack-loader-syntax: off */
-import MobXCanvas from 'bundle-loader?lazy&name=MobXCanvas!./MobXCanvas';
-import ReduxCanvas1 from 'bundle-loader?lazy&name=ReduxCanvas1!./ReduxCanvas1';
-import { ObservableMap, action, observable } from "mobx";
-import DevTools from "mobx-react-devtools";
+import MobXCanvas from "bundle-loader?lazy&name=MobXCanvas!./MobXCanvas";
+import ReduxCanvas1 from "bundle-loader?lazy&name=ReduxCanvas1!./ReduxCanvas1";
+import ReduxCanvas2 from "bundle-loader?lazy&name=ReduxCanvas2!./ReduxCanvas2";
 import React from "react";
 
 const availableExperiments = {
   MobXCanvas,
-  ReduxCanvas1
+  ReduxCanvas1,
+  ReduxCanvas2
 };
 
 class App extends React.Component {
